@@ -29,7 +29,11 @@ function App() {
       <div className="App">
         <div className="wrapper">
           <h1>React tutorial</h1>
-          <TodoList todos={todos} onToggle={todoCompletedHandler} />
+          {todos.length ? (
+            <TodoList todos={todos} onToggle={todoCompletedHandler} />
+          ) : (
+            <p>No todos!</p>
+          )}
         </div>
       </div>
     </Context.Provider>
