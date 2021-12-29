@@ -7,6 +7,7 @@ function TodoItem(props) {
   if (props.todo.completed) {
     classes.push("done");
   }
+
   return (
     <li>
       <span className={classes.join(" ")}>
