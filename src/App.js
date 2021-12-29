@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TodoList from "./Todo/TodoList";
+import Context from "./context";
 
 function App() {
   const [todos, setTodos] = useState([
@@ -19,13 +20,19 @@ function App() {
     );
   }
 
+  function removeTodo(id) {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  }
+
   return (
-    <div className="App">
-      <div className="wrapper">
-        <h1>React tutorial</h1>
-        <TodoList todos={todos} onToggle={todoCompletedHandler} />
+    <Context.Provider value={{ removeTodo: removeTodo }}>
+      <div className="App">
+        <div className="wrapper">
+          <h1>React tutorial</h1>
+          <TodoList todos={todos} onToggle={todoCompletedHandler} />
+        </div>
       </div>
-    </div>
+    </Context.Provider>
   );
 }
 

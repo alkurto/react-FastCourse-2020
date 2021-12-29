@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import Context from "../context";
 
 function TodoItem(props) {
+  const { removeTodo } = useContext(Context);
   const classes = [];
   if (props.todo.completed) {
     classes.push("done");
@@ -17,7 +19,7 @@ function TodoItem(props) {
         {props.todo.title}
       </span>
 
-      <button>&times;</button>
+      <button onClick={removeTodo.bind(null, props.todo.id)}>&times;</button>
     </li>
   );
 }
