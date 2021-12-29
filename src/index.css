@@ -26,6 +26,11 @@ li {
   border-radius: 5px;
   margin-bottom: 0.5rem;
 }
+
+.done {
+  text-decoration: line-through;
+}
+
 input {
   margin-right: 1rem;
 }

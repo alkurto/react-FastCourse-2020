@@ -4,22 +4,26 @@ import TodoList from "./Todo/TodoList";
 function App() {
   const [todos, setTodos] = useState([
     { id: 1, completed: false, title: " Купить муки" },
-    { id: 1, completed: false, title: " Купить молока" },
-    { id: 1, completed: false, title: "Купить масла" },
+    { id: 2, completed: true, title: " Купить молока" },
+    { id: 3, completed: false, title: "Купить масла" },
   ]);
 
-  function checkboxHandler(todo) {
-    todos.map((todo) => {
-      todo.completed = !todo.completed;
-      console.log(todo.completed);
-    });
+  function todoCompletedHandler(id) {
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id) {
+          todo.completed = !todo.completed;
+        }
+        return todo;
+      })
+    );
   }
 
   return (
     <div className="App">
       <div className="wrapper">
         <h1>React tutorial</h1>
-        <TodoList todos={todos} onMark={checkboxHandler} />
+        <TodoList todos={todos} onToggle={todoCompletedHandler} />
       </div>
     </div>
   );

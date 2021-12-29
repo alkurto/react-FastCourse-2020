@@ -10,7 +10,7 @@ function TodoList(props) {
             todo={todo}
             key={todo.id + Math.random()}
             index={index}
-            toggleTodo={onMark}
+            onChange={props.onToggle}
           />
         );
       })}
