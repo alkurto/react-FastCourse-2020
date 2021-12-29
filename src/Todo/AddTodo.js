@@ -15,7 +15,7 @@ function AddTodo(props) {
   return (
     <form onSubmit={formSubmitHandler}>
       <input value={value} onChange={(event) => setValue(event.target.value)} />
-      <button>+</button>
+      <button>Add todo</button>
     </form>
   );
 }

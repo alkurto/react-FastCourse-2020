@@ -13,6 +13,10 @@ code {
 }
 form {
   margin-bottom: 0.5rem;
+  display: flex;
+}
+form input {
+  flex: 1 1 auto;
 }
 ul {
   list-style: none;
