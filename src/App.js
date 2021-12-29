@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import TodoList from "./Todo/TodoList";
 import Context from "./context";
+import AddTodo from "./Todo/AddTodo";
 
 function App() {
   const [todos, setTodos] = useState([
@@ -19,6 +20,17 @@ function App() {
       })
     );
   }
+  function addTodo(title) {
+    setTodos(
+      todos.concat([
+        {
+          title,
+          id: todos.length,
+          completed: false,
+        },
+      ])
+    );
+  }
 
   function removeTodo(id) {
     setTodos(todos.filter((todo) => todo.id !== id));
@@ -29,6 +41,7 @@ function App() {
       <div className="App">
         <div className="wrapper">
           <h1>React tutorial</h1>
+          <AddTodo onCreate={addTodo} />
           {todos.length ? (
             <TodoList todos={todos} onToggle={todoCompletedHandler} />
           ) : (
