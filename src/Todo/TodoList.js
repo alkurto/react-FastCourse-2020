@@ -2,11 +2,6 @@ import React from "react";
 import TodoItem from "./TodoItem";
 
 function TodoList(props) {
-  {
-    if (!props.todos.length) {
-      return <div>No items!</div>;
-    }
-  }
   return (
     <ul>
       {props.todos.map((todo, index, toggleTodo) => {
